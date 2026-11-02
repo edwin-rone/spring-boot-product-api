@@ -55,9 +55,19 @@ controller  →  service  →  repository  →  MySQL
 
 Requisitos: Java 17, Maven y MySQL.
 
+La configuración sensible se toma de variables de entorno:
+
+| Variable | Descripción | Valor por defecto |
+| --- | --- | --- |
+| `DB_URL` | URL de conexión a MySQL | `jdbc:mysql://localhost:3306/dwb_db` |
+| `DB_USERNAME` | Usuario de MySQL | `root` |
+| `DB_PASSWORD` | Contraseña de MySQL | — |
+| `JWT_SECRET` | Clave con la que se firman los tokens JWT | — |
+
 ```bash
 cd product
-# configura tu base de datos en src/main/resources/application.properties
+export DB_PASSWORD=tu_contraseña
+export JWT_SECRET=tu_clave_secreta
 ./mvnw spring-boot:run
 ```
 
